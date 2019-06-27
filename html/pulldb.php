@@ -1,12 +1,9 @@
 <?php
 @session_start();
-$result = '';
-$phrase = 'empty';
-    /*$pass_account = "root";
-    $pass_password = "toor";
-*/
-    $account = $_SESSION['account'];
-    $pass = $_SESSION['pass'];
+
+    $account= $_POST['account'];
+    $_SESSION['account'] = $account;
+    $_SESSION['pass'] = $_POST['pass'];
     
     try {
         $pdo = new PDO('mysql:host=localhost;dbname=passDB;charset=utf8','remote','remote');
@@ -16,9 +13,11 @@ $phrase = 'empty';
     }
 
     $statement = $pdo->query("select * from list where user_name = '$account'");
-    var_dump($statement);
     $record = $statement->fetch(PDO::FETCH_ASSOC);
-    $pass_account = $record["user_name"];
-    $pass_password = $record["password"];
+    //var_dump($record);
+
+    $_SESSION['okuser'] = $record["user_name"];
+    $_SESSION['okpass'] = $record["password"];
+
     header("Location:./login_user.php");
 ?>
