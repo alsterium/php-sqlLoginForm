@@ -1,0 +1,32 @@
+<?php 
+    include('./login.php');
+?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <meta name="Author" content="" />
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+
+<body>
+
+
+    <div class="loginrect">
+        <form method="post" action="./pulldb.php" class="login">
+            <div class="headerRect">
+                <h1 class="login">LoginPage</h1>
+            </div>
+
+            <div class="headerRect">
+                <p>UserName:<input type="text" name="account" class="login"></p>
+                <p>Password:<input type="text" name="pass" class="login"></p>
+                <input type="submit" value="ログイン" class="login">
+            </div>
+
+        </form>
+    </div>
+
+</body></html>
